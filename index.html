@@ -134,7 +134,6 @@ const SUPABASE_KEY = "sb_publishable_PQ_Um6FC90O6UUyrAGhIyg_cTmMGteK";
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let menu = [], activeCategory = "الكل", query = "", cart = [], toastTimer;
-const categoryList = ["الكل", "قسم السندويتشات الغربية", "قسم البركر", "قسم الريزو", "قسم البيتزا", "قسم الفلافل", "قسم الدايت", "قسم الوجبات الغربية", "قسم الشاورما", "قسم المقبلات الساخنة", "قسم الصلصات", "قسم المشروبات"];
 const money = n => new Intl.NumberFormat("en-US").format(Math.max(0, Number(n) || 0)) + " د.ع";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -146,7 +145,7 @@ async function loadMenu() {
         id: m.id,
         name: m.name,
         price: m.price,
-        category: m.category,
+        category: m.category || "عام",
         description: m.description || "",
         image: m.image_url || m.image || "",
         badge: m.badge || "",
@@ -163,8 +162,19 @@ async function loadMenu() {
 function validImage(url) { return /^https:\/\//i.test(String(url || "")) }
 function photo(url) { return validImage(url) ? esc(url) : "" }
 
+function getCategories() {
+  const cats = ["الكل"];
+  menu.forEach(m => {
+    if (m.available !== false && m.category && !cats.includes(m.category)) {
+      cats.push(m.category);
+    }
+  });
+  return cats;
+}
+
 function renderCategories() {
-  const items = categoryList.filter(c => c === "الكل" || menu.some(m => m.available !== false && m.category === c));
+  const items = getCategories();
+  if (!items.includes(activeCategory)) activeCategory = "الكل";
   document.getElementById("categories").innerHTML = items.map(c => `<button type="button" class="category ${c === activeCategory ? "active" : ""}" data-category="${esc(c)}">${esc(c)}</button>`).join("");
 }
 
@@ -217,7 +227,7 @@ document.getElementById("closeCart").addEventListener("click", () => toggleCart(
 document.getElementById("drawerOverlay").addEventListener("click", () => toggleCart(false));
 document.getElementById("startCheckout").addEventListener("click", checkoutOpen);
 document.getElementById("closeCheckout").addEventListener("click", checkoutClose);
-document.getElementById("checkoutBackdrop").addEventListener("click", e => { if (e.target.id === "checkoutBackdrop") checkoutClose() });
+document.getElementById("checkoutBackdrop").classList.remove("open");
 document.getElementById("orderType").addEventListener("change", e => { const pickup = e.target.value === "استلام من المطعم"; document.getElementById("addressField").style.display = pickup ? "none" : "grid"; document.getElementById("customerAddress").required = !pickup });
 document.getElementById("checkoutForm").addEventListener("submit", e => {
   e.preventDefault(); if (!cart.length) { checkoutClose(); return }
