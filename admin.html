@@ -37,11 +37,7 @@
 <div class="field"><label for="category">القسم *</label><select id="category"><option>قسم السندويتشات الغربية</option><option>قسم البركر</option><option>قسم الريزو</option><option>قسم البيتزا</option><option>قسم الفلافل</option><option>قسم الدايت</option><option>قسم الوجبات الغربية</option><option>قسم الشاورما</option><option>قسم المقبلات الساخنة</option><option>قسم الصلصات</option><option>قسم المشروبات</option></select></div>
 <div class="field"><label for="badge">شارة صغيرة (اختياري)</label><input id="badge" maxlength="35" placeholder="الأكثر طلباً"></div>
 <div class="field full"><label for="description">الوصف</label><textarea id="description" rows="2" maxlength="220"></textarea></div>
-<div class="field full"><label for="imageFile">صورة الوجبة</label>
-<input id="imageFile" type="file" accept="image/*">
-<div id="imgStatus" style="font-size:11px;color:var(--muted)"></div>
-<img id="imgPreview" alt="" style="display:none;width:90px;height:90px;object-fit:cover;border-radius:12px">
-<input id="image" type="url" placeholder="أو الصق رابط صورة https://... (اختياري)"></div>
+<div class="field full"><label for="image">رابط صورة HTTPS</label><input id="image" type="url" placeholder="https://..."></div>
 </div>
 <label class="check"><input id="available" type="checkbox" checked> متوفرة للطلب حالياً</label>
 <div class="actions"><button class="btn" type="submit">حفظ</button><button type="button" class="secondary" id="cancel">إلغاء</button></div></form></div></div>
@@ -132,50 +128,10 @@ function open(m) {
   $("badge").value = m?.badge || "";
   $("description").value = m?.description || "";
   $("image").value = m?.image || "";
-  $("imgStatus").textContent = "";
-  showPreview(m?.image || "");
   $("available").checked = m?.available !== false;
   $("modalTitle").textContent = m ? "تعديل وجبة" : "إضافة وجبة";
   $("modal").classList.add("open");
   $("name").focus();
-}
-
-function showPreview(url){const i=$("imgPreview");if(url){i.src=url;i.style.display="block"}else{i.style.display="none"}}
-$("image").addEventListener("input",()=>showPreview($("image").value.trim()));
-
-// رفع الصورة إلى Supabase Storage (bucket: menu-images) وتعبئة الرابط تلقائياً
-$("imageFile").addEventListener("change", async e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const st = $("imgStatus");
-  st.textContent = "جاري ضغط ورفع الصورة...";
-  try {
-    const blob = await compressImage(file, 1000, 0.82);
-    const path = Date.now() + "-" + Math.random().toString(36).slice(2, 8) + ".jpg";
-    const { error } = await supabaseClient.storage.from("menu-images").upload(path, blob, { contentType: "image/jpeg" });
-    if (error) throw error;
-    const { data } = supabaseClient.storage.from("menu-images").getPublicUrl(path);
-    $("image").value = data.publicUrl;
-    showPreview(data.publicUrl);
-    st.textContent = "✅ تم رفع الصورة";
-  } catch (err) {
-    st.textContent = "❌ فشل الرفع: " + (err.message || err);
-  }
-});
-
-function compressImage(file, maxSize, quality) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => {
-      const r = Math.min(1, maxSize / Math.max(img.width, img.height));
-      const c = document.createElement("canvas");
-      c.width = Math.round(img.width * r); c.height = Math.round(img.height * r);
-      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
-      c.toBlob(b => b ? resolve(b) : reject(new Error("تعذر معالجة الصورة")), "image/jpeg", quality);
-    };
-    img.onerror = () => reject(new Error("الملف ليس صورة صالحة"));
-    img.src = URL.createObjectURL(file);
-  });
 }
 
 $("add").addEventListener("click", () => open(null));
