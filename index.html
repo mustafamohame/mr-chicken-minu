@@ -58,6 +58,7 @@ footer{background:var(--ink);color:#f8f6eb;padding:33px 0 20px}.footer-top{displ
 </style>
 </head>
 <body>
+<audio id="bgm" loop preload="auto" src="bg-music.mp3"></audio>
 <header class="topbar">
   <nav class="nav shell" aria-label="القائمة الرئيسية">
     <a class="brand" href="#home" aria-label="مستر جكن الصفحة الرئيسية"><span class="brand-mark">♨</span><span class="brand-name">MISTER CHICKEN<small>مستر جكن · طعم يستاهل</small></span></a>
@@ -229,6 +230,24 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") { toggleCart
 document.getElementById("year").textContent = new Date().getFullYear();
 
 loadMenu();
+
+// ---- background music: resume where the welcome page left off ----
+(function(){
+  var bgm = document.getElementById('bgm');
+  var params = new URLSearchParams(window.location.search);
+  var t = parseFloat(params.get('t'));
+  if (!isNaN(t) && t > 0) {
+    try { bgm.currentTime = t; } catch(e){}
+  }
+  var started = false;
+  function tryPlay(){
+    bgm.play().then(function(){ started = true; }).catch(function(){ /* blocked until a tap */ });
+  }
+  window.addEventListener('load', tryPlay);
+  document.addEventListener('click', function(){
+    if (!started) tryPlay();
+  });
+})();
 </script>
 </body>
 </html>
