@@ -1,5 +1,6 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>مستر جكن | قائمة الطعام</title>
+<link rel="preconnect" href="https://vbhxfufydzfluebmvfni.supabase.co" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@600&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#FCFCFA;color:#151515;font-family:Tajawal,sans-serif;padding-bottom:90px}
@@ -9,7 +10,7 @@
 button{font-family:inherit;cursor:pointer}button:focus-visible{outline:3px solid #C8102E;outline-offset:2px}
 .ic{width:44px;height:44px;border:1.5px solid #151515;border-radius:12px;background:none;position:relative}
 .cnt{position:absolute;top:-6px;left:-6px;background:#C8102E;color:#fff;border-radius:99px;font-size:11px;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center}
-.ban{background:#151515;color:#FCFCFA;border-radius:20px;padding:22px 20px;margin:6px 0 18px;display:flex;flex-direction:column;gap:14px}
+.ban{background:#151515;color:#FCFCFA;border-radius:20px;padding:22px 20px;margin:6px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}.bl{width:clamp(92px,30vw,128px);aspect-ratio:1;object-fit:cover;border-radius:18px;flex:none;border:2px solid #ffffff22}.bx{display:flex;flex-direction:column;gap:14px;min-width:0}
 .ban b{font:600 24px/1.4 'Reem Kufi',sans-serif}
 .go{align-self:flex-start;background:#C8102E;color:#fff;border:0;border-radius:10px;min-height:44px;padding:0 20px;font-weight:700;font-size:15px}
 .tabs{position:sticky;top:0;background:#FCFCFA;padding:8px 0 14px;z-index:5;display:flex;gap:8px;overflow-x:auto}
@@ -17,16 +18,16 @@ button{font-family:inherit;cursor:pointer}button:focus-visible{outline:3px solid
 .tab.on{background:#151515;color:#FCFCFA}
 h2{font:600 22px 'Reem Kufi',sans-serif;color:#C8102E;margin:6px 0}
 .it{display:flex;align-items:center;gap:10px;padding:10px 0}
-.it img{width:56px;height:56px;border-radius:10px;object-fit:cover}
+.it img{width:64px;height:64px;border-radius:12px;object-fit:cover}
 .n{font-weight:700;font-size:17px}.dots{flex:1;border-bottom:2px dotted #bbb;min-width:12px}.p{font-weight:700}
 .q{width:44px;height:44px;border-radius:12px;border:1.5px solid #151515;background:none;font-size:22px;flex:none}
 .q[disabled]{border-color:#ccc;color:#999;font-size:12px;cursor:default}
-.d{font-size:13px;color:#777;margin:-6px 0 4px}
+.d{font-size:15px;line-height:1.7;color:#555;margin:-4px 0 8px}
 .msg{padding:30px 0;text-align:center;color:#777}
 .ft{margin-top:26px;border-top:1.5px solid #151515;padding-top:16px;font-size:14px;line-height:2}
 .bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);width:calc(100% - 40px);max-width:520px;background:#151515;color:#FCFCFA;border:0;border-radius:14px;min-height:54px;display:none;justify-content:space-between;align-items:center;padding:0 18px;font-weight:700;font-size:16px;z-index:9}
 .sh{position:fixed;inset:0;background:#0007;display:none;z-index:20;align-items:flex-end}
-.pn{background:#FCFCFA;width:100%;max-width:560px;margin:auto;border-radius:20px 20px 0 0;padding:20px;max-height:85vh;overflow:auto}
+.pn{background:#FCFCFA;width:100%;max-width:560px;margin:auto auto 0;border-radius:20px 20px 0 0;padding:20px;max-height:85vh;overflow:auto}
 .cr{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #eee}.cr span:first-child{flex:1;font-weight:700}
 .sm{width:38px;height:38px;border-radius:10px;border:1.5px solid #151515;background:none;font-size:18px}
 .pn input{width:100%;min-height:46px;border:1.5px solid #151515;border-radius:10px;padding:0 12px;font:inherit;margin:8px 0}
@@ -47,6 +48,17 @@ h2{font:600 22px 'Reem Kufi',sans-serif;color:#C8102E;margin:6px 0}
 .wl .soc{display:flex;justify-content:center;gap:12px;margin-top:6px}
 .wl .soc a{width:52px;height:52px;display:flex;align-items:center;justify-content:center}
 .pn textarea{width:100%;border:1.5px solid #151515;border-radius:10px;padding:10px 12px;font:inherit;margin:8px 0;resize:vertical}.er{color:#C8102E;font-weight:700;font-size:14px;min-height:20px}
+.nb{background:none;border:0;padding:0;color:inherit;text-align:start;cursor:pointer}
+.ib{border:0;padding:0;background:none;line-height:0;flex:none;cursor:pointer}
+.sk{height:18px;border-radius:8px;margin:18px 0;background:linear-gradient(90deg,#ececea,#f7f7f5,#ececea);background-size:200% 100%;animation:sk 1.2s linear infinite}
+@keyframes sk{to{background-position:-200% 0}}@media (prefers-reduced-motion:reduce){.sk{animation:none}}
+.pvx{width:44px;height:44px;margin:0 auto 8px 0;display:block;font-size:24px}
+.pi{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;margin-bottom:12px;background:#eee;display:block}
+.pn .pt{font:600 28px/1.3 'Reem Kufi',sans-serif;color:#151515;margin:0 0 8px}
+.pd{font-size:19px;line-height:1.9;color:#333;margin:0 0 14px}
+.pp{font-weight:700;font-size:24px;color:#C8102E;margin-bottom:6px}
+.snd[disabled]{background:#bbb;cursor:default}
+.rt{margin-top:10px;min-height:44px;padding:0 20px;border:1.5px solid #151515;border-radius:10px;background:none;font-weight:700;font-size:15px}
 .pn select{width:100%;min-height:46px;border:1.5px solid #151515;border-radius:10px;padding:0 12px;font:inherit;margin:8px 0;background:#fff}
 </style></head><body>
 <div id="wl" class="wl" role="dialog" aria-label="الصفحة الترحيبية"><div class="in">
@@ -56,31 +68,39 @@ h2{font:600 22px 'Reem Kufi',sans-serif;color:#C8102E;margin:6px 0}
 </div></div><div class="w">
 <div class="nav"><button class="ic" id="cb" aria-label="السلة"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#151515" stroke-width="2"><path d="M3 4h2l2.5 11h10L20 7H6"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="cnt" id="cc">0</span></button><span class="logo">مستر جكن</span><button class="ic" id="mu" aria-label="تشغيل الموسيقى" aria-pressed="false" hidden><svg id="mi" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"></svg></button></div>
 <audio id="au" src="bg-music.mp3" loop preload="none"></audio>
-<div class="ban"><b>طازج، مقرمش،<br>وعلى مزاجك</b><button class="go" onclick="document.getElementById('tabs').scrollIntoView({behavior:'smooth'})">اطلب الآن</button></div>
-<div class="tabs" id="tabs"></div><div id="list"><div class="msg">جاري تحميل القائمة...</div></div>
+<div class="ban"><div class="bx"><b>طازج، مقرمش،<br>وعلى مزاجك</b><button class="go" onclick="document.getElementById('tabs').scrollIntoView({behavior:'smooth'})">اطلب الآن</button></div><img class="bl" src="logo.jpg" alt="شعار مستر جكن" width="128" height="128"></div>
+<div class="tabs" id="tabs"><span class="sk" style="width:84px;height:44px;margin:0;border-radius:12px;flex:none"></span><span class="sk" style="width:84px;height:44px;margin:0;border-radius:12px;flex:none"></span><span class="sk" style="width:84px;height:44px;margin:0;border-radius:12px;flex:none"></span><span class="sk" style="width:84px;height:44px;margin:0;border-radius:12px;flex:none"></span></div><div id="list"><div class="sk" style="width:35%"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
 <div class="ft"><b>زورونا</b><br>الموصل، الجانب الأيسر، حي الأمن<br>يومياً من 10 صباحاً إلى 5 فجراً<br><a href="tel:07724505055" style="color:inherit">07724505055</a></div></div>
 <button class="bar" id="bar"><span id="bt">عرض السلة</span><span id="bs"></span></button>
 <div class="sh" id="sh"><div class="pn"><h2>سلتك</h2><div id="cl"></div><b id="tot" style="display:block;margin:12px 0"></b>
 <select id="md" aria-label="نوع الطلب"><option value="">نوع الطلب</option><option>استلام من المطعم</option><option>توصيل</option></select><input id="nm" placeholder="الاسم" autocomplete="name"><input id="ph" type="tel" inputmode="tel" placeholder="رقم الموبايل" autocomplete="tel"><div id="dl" hidden><input id="ad" placeholder="العنوان (المنطقة والشارع)" autocomplete="street-address"><input id="lm" placeholder="أقرب نقطة دالة"></div><textarea id="nt" rows="2" placeholder="ملاحظات (مثلاً: بدون بصل، حار زيادة)"></textarea><div class="er" id="er" role="alert"></div>
 <button class="snd" id="snd">أرسل الطلب عبر واتساب</button><button class="sm" style="width:100%;margin-top:8px" id="cls">رجوع للقائمة</button></div></div>
+<div class="sh" id="pv" role="dialog" aria-modal="true" aria-label="معاينة الوجبة"><div class="pn"><button class="sm pvx" id="pvx" aria-label="إغلاق">×</button><div id="pvb"></div></div></div>
 <script>
 const URL_='https://vbhxfufydzfluebmvfni.supabase.co',KEY='sb_publishable_PQ_Um6FC90O6UUyrAGhIyg_cTmMGteK',WA='9647724505055';
 const H={apikey:KEY,Authorization:'Bearer '+KEY};
 let cats=[],items=[],cur=null,cart={};
 const $=i=>document.getElementById(i),f=n=>Number(n).toLocaleString('en')+' د.ع';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-async function load(){try{
- const [c,i]=await Promise.all(['categories?order=sort','items?order=sort'].map(p=>fetch(URL_+'/rest/v1/'+p,{headers:H}).then(r=>{if(!r.ok)throw 0;return r.json()})));
- cats=c;items=i;cur=cats[0]?.id;draw()}catch(e){$('list').innerHTML='<div class="msg">تعذر تحميل القائمة. حدّث الصفحة وحاول مرة ثانية.</div>'}}
+const CK='mc_menu_v1';
+function show(c,i){cats=c;items=i;if(!cats.some(x=>x.id===cur))cur=cats[0]?.id;draw()}
+async function load(){let had=false;
+ try{const j=JSON.parse(localStorage.getItem(CK));if(j&&j.c&&j.i){show(j.c,j.i);had=true}}catch(e){}
+ try{const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),10000);
+  const [c,i]=await Promise.all(['categories?order=sort','items?order=sort'].map(p=>fetch(URL_+'/rest/v1/'+p,{headers:H,signal:ac.signal}).then(r=>{if(!r.ok)throw 0;return r.json()})));
+  clearTimeout(tm);show(c,i);try{localStorage.setItem(CK,JSON.stringify({c,i}))}catch(e){}
+ }catch(e){if(!had)$('list').innerHTML='<div class="msg">تعذر تحميل القائمة. تأكد من الإنترنت وحاول مرة ثانية.<br><button class="rt" data-r="1">إعادة المحاولة</button></div>'}}
 function draw(){
  $('tabs').innerHTML=cats.map(c=>`<button class="tab ${c.id===cur?'on':''}" data-c="${c.id}">${esc(c.name)}</button>`).join('');
  const c=cats.find(x=>x.id===cur),l=items.filter(x=>x.category_id===cur);
- $('list').innerHTML=!c?'<div class="msg">القائمة فارغة حالياً.</div>':'<h2>'+esc(c.name)+'</h2>'+(l.length?l.map(x=>`<div class="it">${x.image_url?`<img src="${esc(x.image_url)}" alt="" loading="lazy">`:''}<span class="n">${esc(x.name)}</span><span class="dots"></span><span class="p">${f(x.price)}</span><button class="q" data-a="${x.id}" aria-label="أضف ${esc(x.name)}" ${x.available?'':'disabled'}>${x.available?'+':'نفدت'}</button></div>${x.description?`<div class="d">${esc(x.description)}</div>`:''}`).join(''):'<div class="msg">لا توجد وجبات بهذا القسم.</div>')}
+ $('list').innerHTML=!c?'<div class="msg">القائمة فارغة حالياً.</div>':'<h2>'+esc(c.name)+'</h2>'+(l.length?l.map(x=>`<div class="it">${x.image_url?`<button class="ib" data-p="${x.id}" aria-label="معاينة ${esc(x.name)}"><img src="${esc(x.image_url)}" alt="" loading="lazy" decoding="async"></button>`:''}<button class="n nb" data-p="${x.id}">${esc(x.name)}</button><span class="dots"></span><span class="p">${f(x.price)}</span><button class="q" data-a="${x.id}" aria-label="أضف ${esc(x.name)}" ${x.available?'':'disabled'}>${x.available?'+':'نفدت'}</button></div>${x.description?`<div class="d">${esc(x.description)}</div>`:''}`).join(''):'<div class="msg">لا توجد وجبات بهذا القسم.</div>')}
 function sum(){let n=0,t=0;for(const id in cart){const x=items.find(y=>y.id===id);if(x){n+=cart[id];t+=cart[id]*x.price}}return[n,t]}
 function upd(){const[n,t]=sum();$('cc').textContent=n;$('bar').style.display=n?'flex':'none';$('bt').textContent='عرض السلة · '+n+' وجبة';$('bs').textContent=f(t)}
 function cl(){const[,t]=sum();$('cl').innerHTML=Object.keys(cart).map(id=>{const x=items.find(y=>y.id===id);return`<div class="cr"><span>${esc(x.name)}</span><button class="sm" data-m="${id}" aria-label="نقص">−</button><b>${cart[id]}</b><button class="sm" data-a="${id}" aria-label="زد">+</button></div>`}).join('')||'<div class="msg">السلة فارغة</div>';$('tot').textContent='المجموع: '+f(t)}
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
  if(b.dataset.c){cur=b.dataset.c;draw()}
+ if(b.dataset.r)load();
+ if(b.dataset.p)openP(b.dataset.p);
  if(b.dataset.a){cart[b.dataset.a]=(cart[b.dataset.a]||0)+1;upd();if($('sh').style.display==='flex')cl()}
  if(b.dataset.m){const k=b.dataset.m;if(--cart[k]<=0)delete cart[k];upd();cl()}});
 const tg=()=>{$('dl').hidden=$('md').value!=='توصيل'};$('md').onchange=tg;
@@ -104,15 +124,20 @@ const SOC={instagram:'https://www.instagram.com/mr.chicken18',tiktok:'',facebook
  whatsapp:'<path d="M3 21l1.600-4.800A9 9 0 1 1 8 19.500L3 21z"/><path d="M9 8.500c.5 2.500 3 5 5.500 5.500l1.200-1.200-2-1-.8.800c-1-.4-2-1.400-2.400-2.400l.8-.8-1-2L9 8.500z"/>'};
  const L={...SOC,whatsapp:'https://wa.me/'+WA};
  $('soc').innerHTML=Object.keys(L).filter(k=>L[k]).map(k=>`<a class="gl" href="${esc(L[k])}" target="_blank" rel="noopener" aria-label="${k}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${I[k]}</svg></a>`).join('');
- try{if(sessionStorage.getItem('in')){w.remove();return}}catch(e){}
  document.body.style.overflow='hidden';
  w.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;if(b.dataset.go)$('md').value=b.dataset.go;
-  try{sessionStorage.setItem('in','1')}catch(e){}w.classList.add('out');document.body.style.overflow='';setTimeout(()=>w.remove(),400)})})();
+  w.classList.add('out');document.body.style.overflow='';setTimeout(()=>w.remove(),400)})})();
 (function(){const a=$('au'),b=$('mu'),i=$('mi');a.volume=.35;
  const on='<path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.500 8.500a5 5 0 0 1 0 7M19 6a8.500 8.500 0 0 1 0 12"/>',off='<path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l5 6M22 9l-5 6"/>';
  const ui=()=>{const p=!a.paused;i.innerHTML=p?on:off;b.setAttribute('aria-pressed',p);b.setAttribute('aria-label',p?'إيقاف الموسيقى':'تشغيل الموسيقى')};
  a.addEventListener('error',()=>{b.hidden=true});a.addEventListener('play',ui);a.addEventListener('pause',ui);ui();b.hidden=false;
  b.onclick=()=>{if(a.paused)a.play().catch(()=>{});else a.pause()};
  $('wl')&&$('wl').addEventListener('click',e=>{if(e.target.closest('[data-go]'))a.play().catch(()=>{})})})();
+function closeP(){$('pv').style.display='none'}
+function openP(id){const x=items.find(y=>y.id===id);if(!x)return;
+ $('pvb').innerHTML=(x.image_url?`<img class="pi" src="${esc(x.image_url)}" alt="${esc(x.name)}">`:'')+`<h2 class="pt">${esc(x.name)}</h2>`+(x.description?`<p class="pd">${esc(x.description)}</p>`:'')+`<div class="pp">${f(x.price)}</div><button class="snd" id="pva" ${x.available?'':'disabled'}>${x.available?'أضف للسلة':'نفدت'}</button>`;
+ $('pva').onclick=()=>{cart[id]=(cart[id]||0)+1;upd();closeP()};$('pv').style.display='flex';$('pvx').focus()}
+$('pvx').onclick=closeP;$('pv').addEventListener('click',e=>{if(e.target===$('pv'))closeP()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeP()});
 load()
 </script></body></html>
